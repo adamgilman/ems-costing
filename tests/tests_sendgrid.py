@@ -2,7 +2,7 @@ from vendors import SendGrid
 
 import unittest
 
-class TestAWSSES(unittest.TestCase):
+class TestSendGrid(unittest.TestCase):
     def setUp(self):
         self.vendor = SendGrid()
 
