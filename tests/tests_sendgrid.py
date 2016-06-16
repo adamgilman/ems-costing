@@ -26,3 +26,6 @@ class TestAWSSES(unittest.TestCase):
 
     def test_500k_pm(self):
         self.assertEqual(self.vendor.getPrice(500000), 299.95)
+
+    def test_700k_pm(self):
+        self.assertEqual(self.vendor.getPrice(700000), 399.95)

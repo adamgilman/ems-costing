@@ -4,33 +4,14 @@ class SendGrid(object):
         if (numberofemails <= 40000):
             return 9.95
 
-        return min( self.planEssentials40(numberofemails), self.planEssentials100(numberofemails),
-                    self.planPro100(numberofemails), self.planPro300(numberofemails))
-
-    def planEssentials40(self, numberofemails):
-        price = 9.95
-        limit = 40000
-        overage = .0010
-        return self._price(price, limit, overage, numberofemails)
-
-    def planEssentials100(self, numberofemails):
-        price = 19.95
-        limit = 100000
-        overage = .00075
-        return self._price(price, limit, overage, numberofemails)
-
-    def planPro100(self, numberofemails):
-        price = 79.95
-        limit = 100000
-        overage = 0.00085
-        return self._price(price, limit, overage, numberofemails)
-
-    def planPro300(self, numberofemails):
-        price = 199.95
-        limit = 300000
-        overage = 0.0005
-        return self._price(price, limit, overage, numberofemails)
-
+        plans = [
+            self._price(9.95, 40000, .0010, numberofemails),    #ess40
+            self._price(19.95, 100000, .00075, numberofemails), #ess100
+            self._price(79.95, 100000, .00085, numberofemails), #pro100
+            self._price(199.95, 300000, .0005, numberofemails), #pro300
+            self._price(399.95, 700000, .00045, numberofemails), #pro700
+        ]
+        return min( plans )
 
     def _price(self, price, limit, overage, numberofemails):
         surcharge = 0
