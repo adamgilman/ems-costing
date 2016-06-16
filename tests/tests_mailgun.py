@@ -9,11 +9,9 @@ class TestMailGun(unittest.TestCase):
         self.assertEqual(self.vendor.getPrice(0), 0)
 
     def test_Zero_62000(self):
-        #0-62000 are free
         self.assertEqual(self.vendor.getPrice(1), 0)
         self.assertEqual(self.vendor.getPrice(10000), 0)
 
-    #amazon calculates costs per day instead of per month
     def test_100k_pm(self):
         self.assertEqual(self.vendor.getPrice(100000), 45.00)
 
