@@ -3,7 +3,7 @@ class CritSend(object):
         if numberofemails == 0:
             return 0
         plans = [
-            self._price(100000, .0005, numberofemails), #1000 for 1.5pm
+            self._price(0, .0005, numberofemails), #1000 for 1.5pm
             self._price(500000, .0005, numberofemails), #500k for 1pm
             self._price(3000000, .00033, numberofemails), #1mm for .75pm
             self._price(10000000, .0003, numberofemails), #2mm for .50pm
