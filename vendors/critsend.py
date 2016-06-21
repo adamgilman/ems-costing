@@ -10,7 +10,7 @@ class CritSend(object):
             self._price(50000000, .00028, numberofemails), #5mm for .25pm
         ]
 
-        return min( filter(None, plans) )
+        return min( [p for p in plans if p is not False])
 
     def _price(self, minimum, cpe, numberofemails):
         if numberofemails < minimum:

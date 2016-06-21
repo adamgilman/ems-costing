@@ -9,6 +9,9 @@ class TestPostageApp(unittest.TestCase):
     def test_ZeroEmails(self):
         self.assertEqual(self.vendor.getPrice(0), 0)
 
+    def test_5Emails(self):
+        self.assertEqual(self.vendor.getPrice(5), .0)
+
     def test_10Emails(self):
         self.assertEqual(self.vendor.getPrice(10), .01)
 
